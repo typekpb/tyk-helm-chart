@@ -15,7 +15,6 @@ secrets:
   # tyk.conf node_secret
   # tyk.conf secret
   APISecret: CHANGEME
-  OrgID: "1"
 
 redis:
     shardCount: 128
