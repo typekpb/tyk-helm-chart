@@ -26,21 +26,30 @@ secrets:
   AdminSecret: "12345"
 
 redis:
-    shardCount: 128
-    #If you're using Bitnami Redis chart please input the correct host to your instalaltion in the field below
-    #addrs:
-    #   - tyk-redis-master.tyk.svc.cluster.local:6379
-    # addrs:
-    #   - redis.tyk.svc.cluster.local:6379
-    useSSL: false
-    #If you're using Bitnami Redis chart please input your password in the field below
-    #pass: ""
+  # The addrs value will allow you to set your Redis addresses. If you are
+  # using a redis cluster, you can list the endpoints of the redis instances
+  # or use the cluster configuration endpoint.
+  # Default value: redis.{{ .Release.Namespace }}.svc.cluster.local:6379
+  # addrs:
+  #   - redis.tyk.svc.cluster.local:6379
+
+  # Redis password
+  # pass: ""
+
+  # Enables SSL for Redis connection. Redis instance will have to support that.
+  # Default value: false
+  # useSSL: true
+
+  # The enableCluster value will allow you to indicate to Tyk whither you are running
+  # a Redis cluster or not.
+  # Default value: false
+  # enableCluster: true
 
 mongo:
-    # mongoURL: mongodb://mongo.tyk.svc.cluster.local:27017/tyk_analytics
-    #If you're using Bitnami MongoDB chart please input your password below
-    #mongoURL: mongodb://root:pass@tyk-mongo-mongodb.tyk.svc.cluster.local:27017/tyk-dashboard?authSource=admin
-    useSSL: false
+  # mongoURL: mongodb://mongo.tyk.svc.cluster.local:27017/tyk_analytics
+  #If you're using Bitnami MongoDB chart please input your password below
+  #mongoURL: mongodb://root:pass@tyk-mongo-mongodb.tyk.svc.cluster.local:27017/tyk-dashboard?authSource=admin
+  useSSL: false
 
 mdcb:
   enabled: false

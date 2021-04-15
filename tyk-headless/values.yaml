@@ -10,22 +10,32 @@ nameOverride: ""
 # Default value: tyk-headless.fullname
 fullnameOverride: ""
 
-# These are your Tyk stack secrets will directly map to the following Tyk stack configuration:
+# These are your Tyk stack secrets will directly map to the following Tyk stack
+# configuration:
 secrets:
   # tyk.conf node_secret
   # tyk.conf secret
   APISecret: CHANGEME
 
 redis:
-    shardCount: 128
-    addrs:
-      - redis.tyk.svc.cluster.local:6379
-    useSSL: false
-    #If you're using Bitnami Redis chart please input the correct host to your installation in the field below
-    #addrs:
-      #- tyk-redis-master.tyk.svc.cluster.local:6379
-    #If you're using Bitnami Redis chart please input your password in the field below
-      #pass: ""
+  # The addrs value will allow you to set your Redis addresses. If you are
+  # using a redis cluster, you can list the endpoints of the redis instances
+  # or use the cluster configuration endpoint.
+  # Default value: redis.{{ .Release.Namespace }}.svc.cluster.local:6379
+  # addrs:
+  #   - redis.tyk.svc.cluster.local:6379
+
+  # Redis password
+  # pass: ""
+
+  # Enables SSL for Redis connection. Redis instance will have to support that.
+  # Default value: false
+  # useSSL: true
+
+  # The enableCluster value will allow you to indicate to Tyk whither you are running
+  # a Redis cluster or not.
+  # Default value: false
+  # enableCluster: true
 
 mongo:
   enabled: false

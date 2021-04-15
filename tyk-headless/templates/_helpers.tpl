@@ -30,3 +30,11 @@ Create chart name and version as used by the chart label.
 {{- define "tyk-headless.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
+
+{{- define "tyk-headless.redis_url" -}}
+{{- if  .Values.redis.addrs -}}
+{{ join "," .Values.redis.addrs }}
+{{- else -}}
+redis.{{ .Release.Namespace }}.svc.cluster.local:6379
+{{- end -}}
+{{- end -}}
