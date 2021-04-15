@@ -12,7 +12,10 @@ fullnameOverride: ""
 
 hybrid: true
 
+# These are your Tyk stack secrets will directly map to the following Tyk stack configuration:
 secrets:
+  # tyk.conf node_secret
+  # tyk.conf secret
   APISecret: CHANGEME
 
 redis:
