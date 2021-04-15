@@ -92,7 +92,7 @@ spec:
           - name: TYK_DB_MONGOURL
             value: {{ include "tyk-pro.mongo_url" . | quote }}
           - name: TYK_DB_MONGOUSESSL
-            value: "{{ .Values.mongo.useSSL }}"
+            value: "{{ default "false" .Values.mongo.useSSL }}"
           - name: TYK_DB_ADMINSECRET
             value: "{{ .Values.secrets.AdminSecret }}"
           - name: TYK_DB_NODESECRET

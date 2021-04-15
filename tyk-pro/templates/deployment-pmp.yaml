@@ -57,11 +57,11 @@ spec:
           - name: PMP_MONGO_MONGOURL
             value: {{ include "tyk-pro.mongo_url" . | quote }}
           - name: PMP_MONGO_MONGOUSESSL
-            value: "{{ .Values.mongo.useSSL }}"
+            value: "{{ default "false" .Values.mongo.useSSL }}"
           - name: PMP_MONGOAGG_MONGOURL
             value: {{ include "tyk-pro.mongo_url" . | quote }}
           - name: PMP_MONGOAGG_MONGOUSESSL
-            value:  "{{ .Values.mongo.useSSL }}"
+            value:  "{{ default "false" .Values.mongo.useSSL }}"
           - name: TYK_PMP_ANALYTICSSTORAGECONFIG_ADDRS
             value: {{include "tyk-pro.redis_url" . |quote}}
           - name: TYK_PMP_ANALYTICSSTORAGECONFIG_ENABLECLUSTER
