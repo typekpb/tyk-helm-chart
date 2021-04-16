@@ -25,7 +25,7 @@ secrets:
   # tib.conf TykAPISettings.DashboardConfig.AdminSecret
   AdminSecret: "12345"
 
-redis:
+redis: {}
   # The addrs value will allow you to set your Redis addresses. If you are
   # using a redis cluster, you can list the endpoints of the redis instances
   # or use the cluster configuration endpoint.
@@ -45,7 +45,7 @@ redis:
   # Default value: false
   # enableCluster: true
 
-mongo:
+mongo: {}
   # The mongoURL value will allow you to set your MongoDB address.
   # Default value: mongodb://mongo.{{ .Release.Namespace }}.svc.cluster.local:27017/tyk_analytics
   # mongoURL: mongodb://mongo.tyk.svc.cluster.local:27017/tyk_analytics
