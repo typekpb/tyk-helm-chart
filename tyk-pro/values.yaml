@@ -64,7 +64,7 @@ mdcb:
   # - TYK_MDCB_SERVEROPTIONS_CERTIFICATE_CERTFILE
   # - TYK_MDCB_SERVEROPTIONS_CERTIFICATE_KEYFILE
   # variables in extraEnvs object array to define your SSL cert and key files.
-  useSSL: false
+  tls: false
   # Sets the port of the health endpoint.
   healthcheckport: 8181
   # Sets MDCB license.
@@ -107,7 +107,7 @@ tib:
   # - TYK_TIB_SERVEROPTIONS_CERTIFICATE_CERTFILE
   # - TYK_TIB_SERVEROPTIONS_CERTIFICATE_KEYFILE
   # variables in extraEnvs object array to define your SSL cert and key files.
-  useSSL: true
+  tls: true
 
   replicaCount: 1
   containerPort: 3010
