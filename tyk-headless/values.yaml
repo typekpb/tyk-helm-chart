@@ -2,11 +2,11 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-# Chart name override. Truncates to 63 characters. 
+# Chart name override. Truncates to 63 characters.
 # Default value: tyk-headless.name
 nameOverride: ""
 
-# App name override. Truncates to 63 characters. 
+# App name override. Truncates to 63 characters.
 # Default value: tyk-headless.fullname
 fullnameOverride: ""
 
@@ -38,8 +38,8 @@ redis: {}
   # enableCluster: true
 
 mongo:
-  # If you want to collect analytics through the mongo pumps you can turn this 
-  # option on. Once on, Tyk Pump will assume that MongoDB is avaibale at 
+  # If you want to collect analytics through the mongo pumps you can turn this
+  # option on. Once on, Tyk Pump will assume that MongoDB is avaibale at
   # mongo.tyk.svc.cluster.local:27017 if it is not, please change the mongoURL
   # value below.
   enabled: false
@@ -59,7 +59,7 @@ gateway:
   hostName: tyk-gw.local
   # When true, sets the gateway protocol to HTTPS.
   tls: false
-  
+
   kind: DaemonSet
   replicaCount: 1
   containerPort: 8080
@@ -78,8 +78,8 @@ gateway:
     port: 9696
     type: ClusterIP
     annotations: {}
-  # Creates an ingress object in k8s. Will require an ingress-controller and 
-  # annotation to that ingress controller. 
+  # Creates an ingress object in k8s. Will require an ingress-controller and
+  # annotation to that ingress controller.
   ingress:
     enabled: false
     annotations: {}
@@ -115,7 +115,7 @@ gateway:
 pump:
   # Determines whither or not the pump component should be installed.
   enabled: false
-  
+
   replicaCount: 1
   image:
     repository: tykio/tyk-pump-docker-pub
