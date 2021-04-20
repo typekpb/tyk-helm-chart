@@ -34,6 +34,7 @@ Create chart name and version as used by the chart label.
 {{- define "tyk-headless.redis_url" -}}
 {{- if .Values.redis.addrs -}}
 {{ join "," .Values.redis.addrs }}
+{{/* Adds support for older charts with the host and port options */}}
 {{- else if and .Values.redis.host .Values.redis.port -}}
 {{ .Values.redis.host }}:{{ .Values.redis.port }}
 {{- else -}}
@@ -44,6 +45,7 @@ redis.{{ .Release.Namespace }}.svc.cluster.local:6379
 {{- define "tyk-headless.mongo_url" -}}
 {{- if .Values.mongo.mongoURL -}}
 {{ .Values.mongo.mongoURL }}
+{{/* Adds support for older charts with the host and port options */}}
 {{- else if and .Values.mongo.host .Values.mongo.port -}}
 mongodb://{{ .Values.mongo.host }}:{{ .Values.mongo.port }}
 {{- else -}}
